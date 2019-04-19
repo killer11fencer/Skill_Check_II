@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
-// import { HashRouter, Route } from 'react-router-dom'
+import { HashRouter as Router, Route , Switch } from 'react-router-dom'
+import routes from './routes'
 import Dashboard from './Component/Dashboard'
 import Form from './Component/Form'
 import Header from './Component/Header'
@@ -55,12 +56,16 @@ class App extends Component {
     console.log('inventory of the state',this.state.inventory)
 
     return (
+      <Router>
       <div className="App">
+    
+
         <Header/>
         <Dashboard info={inventory} edit={edit} delete={this.deleteProduct}/>
         <Form add={addButton} index={editIndex} id={editId} update={this.updateProduct} info={inventory} button={button} />
-
+       {routes}
       </div>
+       </Router>
     )
   }
 }

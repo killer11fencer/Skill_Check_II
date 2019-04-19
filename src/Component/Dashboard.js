@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-
+import { Link } from 'react-router-dom'
 class Dashboard extends Component {
     render () {
+        
         let displayArray = this.props.info.map((elem,index)=>
         { return <div key={index}>
         <img src={elem.img} alt='product'/><h3>{elem.name}</h3>

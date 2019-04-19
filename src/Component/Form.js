@@ -46,8 +46,9 @@ class Form extends Component {
     onClick = () => {
         let product = this.state;
         
+        console.log('WHERE IS MY IMAGE', product)
         if(!this.state.img) {
-            this.setState({img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/WelshCorgi.jpeg/220px-WelshCorgi.jpeg'})
+            this.setState({ img:'https://cdn.vox-cdn.com/thumbor/E002q8xD7eWnDAgObYgwYXtuL58=/81x0:967x591/1200x800/filters:focal(81x0:967x591)/cdn.vox-cdn.com/uploads/chorus_image/image/46711910/supermanlives2.0.0.jpg'})
         }
         if(this.state.button === 'Save Changes') { 
             this.props.update(product)
