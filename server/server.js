@@ -14,7 +14,6 @@ massive(CONNECTION_STRING).then(dbInstance=> {
 
 
 app.get('/api/products', productCtrl.getAll)
-
 app.post('/api/products',productCtrl.create)
 app.put('/api/products/:id', productCtrl.update)
 app.delete('/api/products/:id', productCtrl.deleteProduct)
