@@ -40,14 +40,14 @@ class App extends Component {
   
 
   render() {
-  
+  let info = this.state.inventory;
     let addButton = this.addNew;
     console.log('inventory of the state',this.state.inventory)
 
     return (
       <div className="App">
         <Header/>
-        <Dashboard/>
+        <Dashboard info={info} delete={this.deleteProduct}/>
         <Form add={addButton} />
 
       </div>
