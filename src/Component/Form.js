@@ -19,18 +19,23 @@ class Form extends Component {
         this.setState({
             name: '',
             price: 0,
-            imgurl: ''
+            img: ''
         })
     }
+    onClick = () => {
+        let newProduct = this.state;
+        this.props.add(newProduct)
+    }
     render() {
-        let {name,price,imgurl} = this.state
+       
+        console.log(this.state)
         return (
             <div>
-                <input  value={imgurl} name='img' onChange={this.handleChanges}></input>
-                <input  value={name} name='product'onChange={this.handleChanges}></input>
-                <input  value={price} name='price'onChange={this.handleChanges}></input>
-                <button className='button'onCLick={this.cancelButton}>Cancel</button>
-                <button className='button' onClick={this.props.add}>Add</button>
+                <input   placeholder='image url' name='img' onChange={this.handleChanges}></input>
+                <input   placeholder='name'name='name'onChange={this.handleChanges}></input>
+                <input   placeholder='price'name='price'onChange={this.handleChanges}></input>
+                <button className='button'onClick={this.cancelButton}>Cancel</button>
+                <button className='button' onClick={this.onClick}>Add</button>
             </div>
         )
     }

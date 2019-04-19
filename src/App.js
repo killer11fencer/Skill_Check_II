@@ -40,7 +40,9 @@ class App extends Component {
   
 
   render() {
+  
     let addButton = this.addNew;
+    console.log('inventory of the state',this.state.inventory)
 
     return (
       <div className="App">
