@@ -7,7 +7,7 @@ class Dashboard extends Component {
         <img src={elem.img} alt='product'/><h3>{elem.name}</h3>
         <h3>{elem.price}</h3>
         <button className='button' onClick={e=> this.props.delete(elem.id)}>Delete</button>
-        <button className='button' onClick={e=> this.props.delete(elem.id)}>Edit</button>
+        <button className='button' onClick={e=> this.props.edit(elem.id)}>Edit</button>
         </div>})
 
         return (

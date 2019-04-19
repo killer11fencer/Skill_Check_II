@@ -7,11 +7,22 @@ class Form extends Component {
         this.state = {
             name: '',
             price: 0,
-            img: ''
+            img: '',
+            button: 'Add to Inventory',
+            
             
         }
         this.cancelButton = this.cancelButton.bind(this);
     }
+//    componentDidUpdate(prevProp) {
+//        if(this.props.button !== prevProp.button) {
+//         this.setState({
+//             name: this.props[this.props.id].name,
+//             price: this.props[this.props.id].price,
+//             img: this.props[this.props.id].img,
+//             button: 'Save Changes'
+//         })
+//        }
    
     handleChanges = (e) => {
     const {name,value} = e.target
@@ -36,7 +47,7 @@ class Form extends Component {
         this.props.add(newProduct)
     }
     render() {
-       
+       console.log('prrrrrpppppp',this.props.id)
        
         return (
             <div>
@@ -44,7 +55,7 @@ class Form extends Component {
                 <input  value={this.state.name} placeholder='name'name='name'onChange={this.handleChanges}></input>
                 <input  value={this.state.price} placeholder='price'name='price'onChange={this.handleChanges}></input>
                 <button className='button'onClick={this.cancelButton}>Cancel</button>
-                <button className='button' onClick={this.onClick}>Add</button>
+                <button className='button' onClick={this.onClick}>{this.state.button}</button>
             </div>
         )
     }
