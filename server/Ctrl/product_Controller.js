@@ -14,7 +14,7 @@ module.exports = {
     update(req,res) {
         const db = req.app.get('db')
         const {id} = req.params
-        const {name,price,image_url} = req.body
+        const {name,price,img} = req.body
         db.update_product([id,name,price,img]).then(result => res.status(200).send(result))
         .catch(err=>console.log('err on update',err))
     },

@@ -9,18 +9,20 @@ class Form extends Component {
             price: 0,
             img: '',
             button: 'Add to Inventory',
+            id: 0
             
             
         }
         this.cancelButton = this.cancelButton.bind(this);
     }
    componentDidUpdate(prevProp) {
-       console.log('PROPS')
+      
        if(this.props.button !== prevProp.button) {
         this.setState({
-            name: this.props.info[this.props.id].name,
-            price: this.props.info[this.props.id].price,
-            img: this.props.info[this.props.id].img,
+            name: this.props.info[this.props.index].name,
+            price: this.props.info[this.props.index].price,
+            img: this.props.info[this.props.index].img,
+            id: this.props.id,
             button: 'Save Changes'
         })
        }
@@ -37,11 +39,13 @@ class Form extends Component {
             name: '',
             price: 0,
             img: '',
+            id: 0,
             button: 'Add to Inventory'
         })
     }
     onClick = () => {
         let product = this.state;
+        
         if(!this.state.img) {
             this.setState({img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/WelshCorgi.jpeg/220px-WelshCorgi.jpeg'})
         }

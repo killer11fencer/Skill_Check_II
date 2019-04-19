@@ -13,8 +13,8 @@ class App extends Component {
     this.state = {
       inventory: [],
       button: 'Add to Inventory',
+      editIndex: 0,
       editId: 0
-
 
 
     }
@@ -40,16 +40,16 @@ class App extends Component {
         this.setState({ inventory: res.data })
       }).catch(err => console.log('err', err))  
     }
-    editButton = (val) =>
+    editButton = (index,id) =>
     this.setState({
     button:'Save Changes',
-    editId: val
-
+    editIndex: index,
+      editId: id
   })
 
   render() {
     
-  let {inventory, button, editId} = this.state;
+  let {inventory, button, editIndex, editId} = this.state;
     let addButton = this.addNew;
     let edit = this.editButton;
     console.log('inventory of the state',this.state.inventory)
@@ -58,7 +58,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Dashboard info={inventory} edit={edit} delete={this.deleteProduct}/>
-        <Form add={addButton} id={editId} update={this.updateProduct} info={inventory} button={button} />
+        <Form add={addButton} index={editIndex} id={editId} update={this.updateProduct} info={inventory} button={button} />
 
       </div>
     )
