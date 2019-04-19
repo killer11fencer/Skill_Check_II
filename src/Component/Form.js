@@ -14,15 +14,17 @@ class Form extends Component {
         }
         this.cancelButton = this.cancelButton.bind(this);
     }
-//    componentDidUpdate(prevProp) {
-//        if(this.props.button !== prevProp.button) {
-//         this.setState({
-//             name: this.props[this.props.id].name,
-//             price: this.props[this.props.id].price,
-//             img: this.props[this.props.id].img,
-//             button: 'Save Changes'
-//         })
-//        }
+   componentDidUpdate(prevProp) {
+       console.log('PROPS',this.props.info[this.props.id].name)
+       if(this.props.button !== prevProp.button) {
+        this.setState({
+            name: this.props.info[this.props.id].name,
+            price: this.props.info[this.props.id].price,
+            img: this.props.info[this.props.id].img,
+            button: 'Save Changes'
+        })
+       }
+    }
    
     handleChanges = (e) => {
     const {name,value} = e.target
@@ -34,7 +36,8 @@ class Form extends Component {
         this.setState({
             name: '',
             price: 0,
-            img: ''
+            img: '',
+            button: 'Add to Inventory'
         })
     }
     onClick = () => {
@@ -47,7 +50,7 @@ class Form extends Component {
         this.props.add(newProduct)
     }
     render() {
-       console.log('prrrrrpppppp',this.props.id)
+       
        
         return (
             <div>
