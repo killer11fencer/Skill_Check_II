@@ -48,7 +48,7 @@ class App extends Component {
   })
 
   render() {
-    console.log('passsing',this.state.editId)
+    
   let {inventory, button, editId} = this.state;
     let addButton = this.addNew;
     let edit = this.editButton;
@@ -58,7 +58,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Dashboard info={inventory} edit={edit} delete={this.deleteProduct}/>
-        <Form add={addButton} id={editId} info={inventory} button={button} />
+        <Form add={addButton} id={editId} update={this.updateProduct} info={inventory} button={button} />
 
       </div>
     )

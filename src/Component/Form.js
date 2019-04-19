@@ -15,7 +15,7 @@ class Form extends Component {
         this.cancelButton = this.cancelButton.bind(this);
     }
    componentDidUpdate(prevProp) {
-       console.log('PROPS',this.props.info[this.props.id].name)
+       console.log('PROPS')
        if(this.props.button !== prevProp.button) {
         this.setState({
             name: this.props.info[this.props.id].name,
@@ -41,13 +41,15 @@ class Form extends Component {
         })
     }
     onClick = () => {
+        let product = this.state;
         if(!this.state.img) {
-            this.setState({
-                img: 'https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2018/06/gettyimages-976088928.jpg'
-            })
+            this.setState({img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/WelshCorgi.jpeg/220px-WelshCorgi.jpeg'})
         }
-        let newProduct = this.state;
-        this.props.add(newProduct)
+        if(this.state.button === 'Save Changes') { 
+            this.props.update(product)
+        }
+        if(this.state.button === 'Add to Inventory')
+        this.props.add(product)
     }
     render() {
        
